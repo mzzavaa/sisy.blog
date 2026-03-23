@@ -1,0 +1,34 @@
+{{ define "main" }}
+  <section class="hero" style="padding: 72px 24px 56px;">
+    <div class="container">
+      <p class="hero-label">{{ if .IsSection }}{{ .Title }}{{ else }}All Articles{{ end }}</p>
+      <h1 style="font-family: var(--font-display); font-size: clamp(2rem,5vw,3.2rem); color: var(--clr-text); margin-bottom: 16px;">
+        {{ if .IsSection }}{{ .Title }}{{ else }}All Articles{{ end }}
+      </h1>
+      <p class="hero-sub" style="margin-bottom: 0;">{{ with .Description }}{{ . }}{{ else }}Practical writing on visibility, speaking craft, and expert growth.{{ end }}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="article-grid">
+        {{ range .Pages }}
+        <article class="article-card fade-in">
+          <div class="article-card-img"><i data-lucide="book-open"></i></div>
+          <div class="article-card-body">
+            {{ with .Params.category }}<p class="article-category">{{ . }}</p>{{ end }}
+            <h3><a href="{{ .Permalink }}" style="color: var(--clr-text);">{{ .Title }}</a></h3>
+            <p>{{ .Summary }}</p>
+            <div class="article-meta">
+              {{ with .ReadingTime }}<span>{{ . }} min read</span><span>·</span>{{ end }}
+              <span>{{ .Date.Format "January 2006" }}</span>
+            </div>
+          </div>
+        </article>
+        {{ else }}
+        <p style="grid-column: 1/-1; text-align:center; color: var(--clr-text-soft);">No articles yet — check back soon.</p>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+{{ end }}

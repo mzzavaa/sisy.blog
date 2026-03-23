@@ -1,0 +1,45 @@
+{{ define "main" }}
+  <article>
+    <header style="padding: 72px 24px 48px; background: linear-gradient(170deg, var(--clr-hero-start) 0%, var(--clr-bg) 100%); text-align: center;">
+      <div class="container">
+        {{ with .Params.category }}<p class="hero-label">{{ . }}</p>{{ end }}
+        <h1 style="font-family: var(--font-display); font-size: clamp(2rem,5vw,3rem); color: var(--clr-text); margin-bottom: 20px; max-width: 720px; margin-left: auto; margin-right: auto;">{{ .Title }}</h1>
+        <div style="font-size: 0.88rem; color: var(--clr-text-soft); display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+          {{ with .ReadingTime }}<span>{{ . }} min read</span><span>·</span>{{ end }}
+          <span>{{ .Date.Format "2 January 2006" }}</span>
+          {{ with .Params.author }}<span>·</span><span>By {{ . }}</span>{{ end }}
+        </div>
+      </div>
+    </header>
+
+    <div class="section" style="padding-top: 56px;">
+      <div class="container" style="max-width: 720px;">
+        <div style="font-size: 1.05rem; line-height: 1.85; color: var(--clr-text-soft);">
+          {{ .Content }}
+        </div>
+
+        <div style="margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--clr-border); display: flex; gap: 12px; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+          <a href="/posts/" style="color: var(--clr-text-soft); font-size: 0.88rem;">← All Articles</a>
+          {{ with .Params.tags }}
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            {{ range . }}<span class="feature-tag">{{ . }}</span>{{ end }}
+          </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- CTA after article -->
+  <section class="freebie-section">
+    <div class="container">
+      <h2>Enjoyed this? Get <span class="freebie-gold">more every week.</span></h2>
+      <p class="section-lead">The SISY weekly digest: one new article, curated CFPs, and a visibility tip — delivered free every week.</p>
+      <form class="newsletter-form" action="#" method="POST">
+        <input type="email" name="email" placeholder="your@email.com" required aria-label="Email address">
+        <button type="submit" class="btn btn-primary">Subscribe Free</button>
+      </form>
+      <p class="freebie-note">No spam. Unsubscribe anytime.</p>
+    </div>
+  </section>
+{{ end }}
