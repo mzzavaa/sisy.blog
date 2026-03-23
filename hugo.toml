@@ -1,6 +1,6 @@
 baseURL = "https://sisy.blog/"
 languageCode = "en-us"
-title = "SISY Blog — Visibility, Speaking & Expert Growth"
+title = "SISY Blog - Visibility, Speaking & Expert Growth"
 
 [params]
   description = "Articles, guides, and resources for women experts building visibility, landing speaking opportunities, and growing their expert brand."

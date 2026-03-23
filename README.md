@@ -1,7 +1,7 @@
-# sisy.blog — Content Hub & SEO Engine
+# sisy.blog - Content Hub & SEO Engine
 
 **Domain:** sisy.blog
-**Role:** Marketing — Organic content & SEO funnel
+**Role:** Marketing - Organic content & SEO funnel
 **Priority:** Phase 2
 **Notion:** See SISY Domain Strategy page
 
